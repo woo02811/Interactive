@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TransCss</title>
+</head>
+<style>
+    .box-container {
+        display: flex;
+    }
+
+    .box {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        background: beige;
+
+    }
+    .box:hover{
+        /*Scale: 사이즈가 커짐*/
+        /*transform: scale(2);*/
+        /*Rotate: 회전*/
+        /*transform: rotate(50deg);*/
+        /*Skew: X/Y/Z 축을 기준으로 비틀기*/
+        /*transform: skewY(45deg);*/
+        /*Traslate: 이동*/
+        transform: translate(50px, 30px);
+    }
+</style>
+<body>
+    <h1>Transform</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus architecto dolore est et hic natus non quis similique?
+        Asperiores culpa dolorem in, ipsum odio possimus quas tempore. Animi blanditiis cumque debitis dolore ducimus ea eius esse est eveniet, excepturi fugiat fugit illum impedit iure laboriosam magnam maiores mollitia, nam nesciunt nisi, nobis praesentium quam qui quis reprehenderit sapiente sed sit tenetur totam vel velit vitae voluptatem voluptatum. Accusamus, consequatur culpa debitis deleniti dolor dolorem harum illum,
+        laboriosam natus odio officia officiis perspiciatis qui quisquam repudiandae rerum sint, vero. Culpa,
+        eius error libero modi molestiae quam quos reiciendis tenetur veniam voluptatum?
+    </p>
+    <br/>
+    <div class="box-container">
+        <div class="box">A</div>
+        <div class="box">B</div>
+        <div class="box">C</div>
+        <div class="box">D</div>
+        <div class="box">E</div>
+    </div>
+    <br/>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus architecto dolore est et hic natus non quis similique?
+        Asperiores culpa dolorem in, ipsum odio possimus quas tempore. Animi blanditiis cumque debitis dolore ducimus ea eius esse est eveniet, excepturi fugiat fugit illum impedit iure laboriosam magnam maiores mollitia, nam nesciunt nisi, nobis praesentium quam qui quis reprehenderit sapiente sed sit tenetur totam vel velit vitae voluptatem voluptatum. Accusamus, consequatur culpa debitis deleniti dolor dolorem harum illum,
+        laboriosam natus odio officia officiis perspiciatis qui quisquam repudiandae rerum sint, vero. Culpa,
+        eius error libero modi molestiae quam quos reiciendis tenetur veniam voluptatum?
+    </p>
+</body>
+</html>
