@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3D CSS</title>
+    <style>
+        .world {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80vw;
+            height: 60vh;
+            background: #fff000;
+            /*
+                원근감
+                얼마나 가까이서 볼지?
+                리얼한 시점?처럼 볼꺼면 World에 perspective 적용
+            */
+            perspective: 500px;
+        }
+
+        .world:hover .card{
+            transform: rotateY(-180deg);
+        }
+
+        .card {
+            position: relative;
+            width: 100px;
+            height: 150px;
+            margin: 1em;
+            /*
+               rem: root의 폰트사이즈
+               em: 현재 Element 폰트사이즈
+            */
+            /*border-radius: 0.5em;*/
+            /*font-size: 1.5rem;*/
+            /*background: red;*/
+            transition: 1s;
+            /*
+                transform: rotateY(0deg);
+                변화가없더라도 위에 구문을 선언해주는게 좋음
+                왜냐하면 렌더링할때 해당Element가 변화가 있을꺼라고 인식을 하기때문에
+            */
+            transform: rotateY(0deg);
+            transform-origin: left;
+            /*모든 Element를 다 똑같은 시점으로 볼꺼면 해당 Element Class에 perspective 속성 적용*/
+            /*transform: perspective(500px) rotateY(45deg);*/
+            /*transform: rotateY(45deg);*/
+            /*중간에 있는 요소도 3D로 만들어줘야함*/
+            transform-style: preserve-3d;
+        }
+        .card-side {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /*
+               rem: root의 폰트사이즈
+               em: 현재 Element 폰트사이즈
+            */
+            border-radius: 0.5em;
+            font-size: 1.5rem;
+            background: red;
+            /*뒷면을 Hidden으로 안보이게 설정*/
+            backface-visibility: hidden;
+        }
+
+        .card-side-front {
+            z-index: 1;
+            background: wheat;
+        }
+
+        .card-side-back {
+            transform: rotateY(180deg);
+            background: aquamarine;
+        }
+    </style>
+</head>
+<body>
+<div class="world">
+    <div class="card">
+        <div class="card-side card-side-front">Front</div>
+        <div class="card-side card-side-back">Back</div>
+    </div>
+</div>
+</body>
+</html>
