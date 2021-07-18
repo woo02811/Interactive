@@ -16,21 +16,33 @@
         height: 100px;
         border: 1px solid black;
         background: beige;
+        transition: 1s 0.3s;
+        /*
+        Transition: 수치화된 값(W,H,FSI,BG)이 변경될때 발생하는 효과에 대한 정의이고 Auto같은 경우는 수치화된 값이 아니기 때문에 적용되지 않음
+            transition-property: all;  트랜지션을 적용해야 하는 CSS 속성의 이름 혹은 이름들을 명시
+            transition-duration: 1s; 애니메이션 재생시간
+            transition-timing-function: ease;  속도감 ease: 가속도 || Linear: 등속도
+            transition-delay: 0;몇초있다가 동작할껀지;
+        */
 
     }
     .box:hover{
         /*Scale: 사이즈가 커짐*/
-        /*transform: scale(2);*/
+        transform: scale(2);
         /*Rotate: 회전*/
         /*transform: rotate(50deg);*/
         /*Skew: X/Y/Z 축을 기준으로 비틀기*/
         /*transform: skewY(45deg);*/
         /*Traslate: 이동*/
-        transform: translate(50px, 30px);
+        /*transform: translate(50px, 30px);*/
+        /*Transform-origin: 기준점을 바꿔줌(Default: 중간)*/
+        /*transform-origin: right bottom;*/
+        /*0% 0% => left top ?%를 이용해서 애매한곳도 기준점으로 잡을수 있음 */
+        /*transform-origin: 0% 0%;*/
     }
 </style>
 <body>
-    <h1>Transform</h1>
+    <h1>Transform & Transition</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus architecto dolore est et hic natus non quis similique?
         Asperiores culpa dolorem in, ipsum odio possimus quas tempore. Animi blanditiis cumque debitis dolore ducimus ea eius esse est eveniet, excepturi fugiat fugit illum impedit iure laboriosam magnam maiores mollitia, nam nesciunt nisi, nobis praesentium quam qui quis reprehenderit sapiente sed sit tenetur totam vel velit vitae voluptatem voluptatum. Accusamus, consequatur culpa debitis deleniti dolor dolorem harum illum,
         laboriosam natus odio officia officiis perspiciatis qui quisquam repudiandae rerum sint, vero. Culpa,
