@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Frame Animation</title>
+</head>
+<style>
+
+/*
+    Gif와 SpriteImg 차이점
+    Gif로 할수있지만 Gif는 투명도가 적용이안됌(알파채널)
+    속도나 멈춤등 다양한걸 코드로 제어 할수있음
+*/
+    @keyframes spaceShip-ani {
+        /*값이 별경되지않으면 굳이 0%선언할필요없음 0%==from 똑같음*/
+        /*from {*/
+        /*    */
+        /*}*/
+        /*100% == to*/
+        to {
+            background-position-x: -2550px;
+        }
+    }
+    .spaceship {
+        width: 150px;
+        height: 150px;
+        background: url("img/sprite_spaceship.png") no-repeat 0 0 / auto 150px;
+        animation: spaceShip-ani 2s infinite steps(17);
+    }
+</style>
+<body>
+
+<div class="spaceship"></div>
+
+</body>
+</html>
