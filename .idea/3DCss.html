@@ -21,14 +21,22 @@
             perspective: 500px;
         }
 
-        .world:hover .card{
-            transform: rotateY(-180deg);
+        /*.world:hover .card-side{
+          transform: rotateY(-180deg);
+        }*/
+        .world:hover .card-side-front{
+            transform: rotateY(180deg);
+
+        }
+        .world:hover .card-side-back{
+            transform: rotateY(360deg);
+
         }
 
         .card {
             position: relative;
-            width: 100px;
-            height: 150px;
+            /*width: 100px;*/
+            /*height: 150px;*/
             margin: 1em;
             /*
                rem: root의 폰트사이즈
@@ -44,11 +52,12 @@
                 왜냐하면 렌더링할때 해당Element가 변화가 있을꺼라고 인식을 하기때문에
             */
             transform: rotateY(0deg);
-            transform-origin: left;
+            /*transform-origin: left;*/
             /*모든 Element를 다 똑같은 시점으로 볼꺼면 해당 Element Class에 perspective 속성 적용*/
             /*transform: perspective(500px) rotateY(45deg);*/
             /*transform: rotateY(45deg);*/
             /*중간에 있는 요소도 3D로 만들어줘야함*/
+            transform-style: preserve-3d;
             transform-style: preserve-3d;
         }
         .card-side {
@@ -56,10 +65,13 @@
             justify-content: center;
             align-items: center;
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 50%;
+            left: 50%;
+            width: 100px;
+            height: 150px;
+            margin: -75px 0 0 -50px;
+            /*width: 100%;*/
+            /*height: 100%;*/
             /*
                rem: root의 폰트사이즈
                em: 현재 Element 폰트사이즈
@@ -67,8 +79,19 @@
             border-radius: 0.5em;
             font-size: 1.5rem;
             background: red;
-            /*뒷면을 Hidden으로 안보이게 설정*/
+            transition: 1s;
+            /*
+                Safari에서 backface-visibility: hidden; 지원을 안해서 아래와 같이 해줘야함
+                -webkit-backface-visibility: hidden;
+                뒷면을 Hidden으로 안보이게 설정
+                순서는 상관없는데 맨밑에 표준을 적어주는게 좋음
+            */
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -ms-backface-visibility: hidden;
+            -o-backface-visibility: hidden;
             backface-visibility: hidden;
+
         }
 
         .card-side-front {
@@ -84,10 +107,10 @@
 </head>
 <body>
 <div class="world">
-    <div class="card">
+<!--    <div class="card">-->
         <div class="card-side card-side-front">Front</div>
         <div class="card-side card-side-back">Back</div>
-    </div>
+<!--    </div>-->
 </div>
 </body>
 </html>
