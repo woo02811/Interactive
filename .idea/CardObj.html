@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .card {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        height: 150px;
+        border: 1px solid cyan;
+        margin: 3px 3px 3px 3px;
+        border-radius: 15px;
+        font-size: 3rem;
+        font-weight: 900;
+    }
+</style>
+<body>
+
+<script>
+    function Card(num,color) {
+        this.num = num;
+        this.color = color;
+        this.init();
+    };
+
+    Card.prototype = {
+      constructor: Card,
+      init: function () {
+          const mainElem = document.createElement('div')
+          mainElem.style.color=this.color;
+          mainElem.innerHTML=this.num;
+          mainElem.classList.add('card');
+          document.body.appendChild(mainElem);
+      }
+    };
+
+    // Card.prototype.width = 100;
+    // Card.prototype.height = 150;
+
+    const card1 = new Card(1,'Blue');
+    const card2 = new Card(7,'Green');
+
+    // console.log(card1.color);
+    // console.log(card2.color);
+    // console.log(card1.width);
+    // console.log(card2.width);
+</script>
+</body>
+</html>

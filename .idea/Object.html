@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Object</h1>
+<script>
+
+    //fire 는 객체
+    const fire = {};
+    //name&age 이런거는 property
+    fire.name = "파이리";
+    fire.age= "10";
+    //속성이 함수인애들 => Methode
+    fire.introduce = function () {
+        console.log('안녕하세요 저는 '+fire.name+' 이고 '+fire.age+'살이에요');
+    }
+    fire.introduce();
+
+    const water = {
+        name: '꼬부기',
+        age: '20',
+        introduce: function () {
+            console.log('안녕하세요 저는 '+water.name+' 이고 '+water.age+'살이에요');
+        }
+    }
+
+    //this는 메서드를 실행한 주체를 가르킴
+    const leaf = {
+        name: '이상해씨',
+        age: '30',
+        introduce: function () {
+            console.log('안녕하세요 저는 '+this.name+' 이고 '+this.age+'살이에요');
+        }
+    }
+
+    water.introduce()
+    leaf.introduce()
+    
+    //생성자(constructor)
+    function Pokemon(name, age) {
+        this.name=name;
+        this.age=age;
+        // this.introduce=function () {
+        //     console.log('안녕하세요 저는 '+this.name+' 이고 '+this.age+'살이에요');
+        // }
+    }
+    //인스턴스들이공유하는걸 만들때 prototype에 정의
+    Pokemon.prototype.introduce =function () {
+        console.log('안녕하세요 저는 '+this.name+' 이고 '+this.age+'살이에요');
+    }
+    //생성자로 만든 객체를 인스턴스(instance)라고함
+    const thunder = new Pokemon('피카츄','8');
+    const thunder2 = new Pokemon('라이츄','18');
+    thunder.introduce();
+    thunder2.introduce();
+</script>
+</body>
+</html>
