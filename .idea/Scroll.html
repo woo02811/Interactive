@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pokemon</title>
+</head>
+<style>
+    body {
+        margin: 0;
+    }
+    .headBar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        font-weight: 700;
+        font-size: 2rem;
+        width: 100%;
+        height: 50px;
+        background-image:linear-gradient(to left top ,orangered, yellow) ;
+        opacity: 0.7;
+    }
+    .content {
+        height: 1000vh;
+        padding: 20%;
+        background: lightsalmon;
+    }
+    .fire {
+        width: 100px;
+        margin: 20px auto;
+        transition: 1s;
+    }
+    .fire.zoom {
+        transform: scale(2) translateY(100px);
+    }
+</style>
+<body>
+    <div class="headBar">Pokemon</div>
+    <div class="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci expedita explicabo ipsum, itaque iure magnam maxime minima nisi officia officiis perspiciatis quo reprehenderit soluta, ullam veritatis voluptas voluptate! Alias animi architecto assumenda autem commodi culpa delectus dignissimos dolor dolores ducimus earum enim et exercitationem expedita ipsa ipsum laborum, nam necessitatibus nemo nisi, nostrum optio praesentium quaerat quas qui quo quos ratione reiciendis repellendus rerum temporibus unde vel vitae. Beatae debitis et inventore molestias nihil possimus reiciendis rem reprehenderit. Accusamus animi aspernatur consectetur cumque debitis dicta doloribus dolorum ducimus error est explicabo fugit illum in incidunt itaque labore maiores minima modi natus nesciunt nisi nulla odit pariatur quibusdam quod reiciendis repudiandae saepe suscipit, tenetur velit veritatis vero voluptatem voluptatum. Accusamus eligendi necessitatibus odio officia quae! Ab cumque doloribus fugiat optio perspiciatis quas quia reiciendis repudiandae sed veritatis! Dolorum error mollitia perferendis provident similique! Aut dolor dolorem facere incidunt ipsa, laboriosam minima nobis odio officiis reiciendis saepe sed unde. Alias assumenda atque doloremque, est expedita illo maiores quis tempora veniam vero! Aperiam autem beatae consectetur deserunt dolore, doloremque, dolorum eius et, exercitationem expedita harum id illum laborum libero minima quaerat reiciendis repellat tempore vel voluptatum! Aperiam dolorem earum perspiciatis possimus veniam.
+        </p>
+        <figure class="fire">
+            <img src="img/firerm.png" alt="파이리"/>
+        </figure>
+    </div>
+
+<script>
+    (function () {
+        const HeaderBar = document.querySelector('.headBar')
+        const fire = document.querySelector('.fire');
+        function showPos() {
+            let firePosY =fire.getBoundingClientRect().top;
+            HeaderBar.innerHTML = "Fire:     "+firePosY;
+            if(firePosY < window.innerHeight/5){
+                fire.classList.add('zoom');
+            }
+            else{
+                fire.classList.remove('zoom');
+            }
+        }
+        window.addEventListener('scroll',function () {
+            showPos();
+            //Y축 스크롤 값
+            // HeaderBar.innerHTML = "Pokemon     "+window.pageYOffset;
+            //파이리 위치 (처음위치만 감지)
+            // HeaderBar.innerHTML = "Fire:     "+fire.offsetTop;
+            /*
+            getBoundingClientRect() => 해당요소의 위치를 가지고있음 IE 의 경우 X/Y지원안함
+            bottom: 314
+            height: 221
+            left: 512.5
+            right: 612.5
+            top: 93
+            width: 100
+            x: 512.5
+            y: 93
+             */
+            // HeaderBar.innerHTML = "Fire:     "+fire.getBoundingClientRect().top;
+        })
+        showPos();
+    })();
+</script>
+</body>
+</html>
