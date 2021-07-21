@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!--
+    RequestAnimationFrame vs Interval
+    IE      X                   O
+    Interval은 Frame이 컴퓨터 처리능력에 따라 버벅이거나 할수있는데
+    RequestAnimationFrame그러지않음
+    RequestAnimationFrame 초당 60회를 목표로 동작
+-->
+    <title>RequestAnimationFrame</title>
+</head>
+<style>
+    .btn {
+        font-size: 2rem;
+    }
+</style>
+<body>
+<button class="btn">취소</button>
+<script>
+    const btn = document.querySelector('.btn');
+    let timeId;
+    let n = 0;
+    function sample() {
+        console.log('sample'+n);
+        n++;
+        if(n>100){
+            return;
+        }
+        timeId=requestAnimationFrame(sample);
+    };
+    sample();
+    btn.addEventListener('click',function () {
+        cancelAnimationFrame(timeId);
+    })
+</script>
+</body>
+</html>

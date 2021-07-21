@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interval</title>
+</head>
+<style>
+    .btn {
+        font-size: 2rem;
+    }
+</style>
+<body>
+<button class="btn">취소</button>
+<script>
+    const btn = document.querySelector('.btn');
+    let timeId;
+    function sample() {
+        console.log('sample')
+    };
+    //setInterval은 반복
+    timeId=setInterval(sample,100);
+
+    btn.addEventListener('click',function () {
+        clearInterval(timeId);
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timeout</title>
+</head>
+<style>
+    .btn {
+        font-size: 2rem;
+    }
+</style>
+<body>
+<button class="btn">취소</button>
+    <script>
+        const btn = document.querySelector('.btn');
+        let timeId;
+        function sample() {
+            console.log('sample')
+        };
+        //setTimeout 숫자를 반환
+        timeId=setTimeout(sample,3000);
+        //clearTimeout => Timeout 취소
+        // clearTimeout(timeId);
+        // setTimeout(function () {
+        //     console.log('Out');
+        // },1000)
+        btn.addEventListener('click',function () {
+            clearTimeout(timeId);
+        })
+    </script>
+</body>
+</html>
