@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TransitionJS</title>
+</head>
+<style>
+    .ball {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 30px;
+        height: 30px;
+        /*margin: -15px 0 0 -15px;*/
+        border-radius: 50%;
+        background: aqua;
+        transition: 1s;
+    }
+    .ball.end{
+        background: lightsalmon;
+    }
+</style>
+<body>
+    <div class="ball"></div>
+
+<script>
+    const ball = document.querySelector('.ball');
+    window.addEventListener('click',function (e) {
+        // console.log(e.clientX,e.clientY);
+        ball.style.transform='translate('+ (e.clientX-15) +'px,'+ (e.clientY-15) +'px)';
+    });
+    //transitionstart
+    //transitionend
+    ball.addEventListener('transitionend',function () {
+        ball.classList.add('end');
+        //elapsedTime => Transition경과시간이 나옴
+        console.log(e.elapsedTime);
+        //propertyName => 바뀌는 속성이 찍힘
+        console.log(e.propertyName);
+    })
+</script>
+</body>
+</html>
